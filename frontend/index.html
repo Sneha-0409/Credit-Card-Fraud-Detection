@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Fraud Detection Unit - Live</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab active">LIVE STREAM</button>
+            <button class="tab inactive">TODAY'S BATCH</button>
+            <button class="tab archived">ARCHIVED</button>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- LEFT COLUMN -->
+            <div class="column-left">
+                <!-- HEADER CARD -->
+                <div class="card header-card">
+                    <h1>Card Fraud Detection Unit — Live Ledger</h1>
+                    <p class="subtitle">Gradient-boosted ensemble · scoring every authorization in real time</p>
+
+                    <div class="badges">
+                        <span class="badge"><span class="dot green"></span> MODEL ACTIVE · GBM v4.2.1 · AUC 0.854</span>
+                        <span class="badge badge-dashed">Analyst on duty: R. Kapoor</span>
+                    </div>
+                </div>
+
+                <!-- STATS GRID -->
+                <div class="stats-grid">
+                    <div class="card stat-card">
+                        <div class="stat-header">TRANSACTIONS TODAY</div>
+                        <div class="stat-value">184,302</div>
+                        <div class="stat-change text-green">↓ 2.1% vs yesterday</div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-header">FLAGGED AS FRAUD</div>
+                        <div class="stat-value">1,247</div>
+                        <div class="stat-change text-red">↑ 0.68% of volume</div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-header">PRECISION</div>
+                        <div class="stat-value">86.1%</div>
+                        <div class="stat-change text-green">↓ 0.3pt this week</div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-header">RECALL</div>
+                        <div class="stat-value">65.3%</div>
+                        <div class="stat-change text-red">↑ 1.1pt this week</div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-header">AVG. SCORE LATENCY</div>
+                        <div class="stat-value">38ms</div>
+                        <div class="stat-change text-green">stable</div>
+                    </div>
+                </div>
+
+                <!-- LIVE LEDGER TABLE -->
+                <div class="card ledger-card">
+                    <div class="ledger-header-wrapper">
+                        <div class="ledger-title-group">
+                            <h2>Live transaction ledger</h2>
+                            <p>Every entry scored, stamped, and timestamped on arrival</p>
+                        </div>
+                        <div class="streaming-indicator"><span class="dot green"></span> streaming</div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>TX ID</th>
+                                    <th>MERCHANT</th>
+                                    <th class="text-right">AMOUNT</th>
+                                    <th class="text-right">DISPOSITION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ledger-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="column-right">
+
+                <!-- PRIORITY CASE FOLDERS -->
+                <div class="priority-section">
+                    <div class="priority-header">
+                        <h2>Priority case folders</h2>
+                        <p>High-risk transactions awaiting analyst decision</p>
+                    </div>
+
+                    <div id="priority-list" class="priority-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- FEATURE IMPORTANCE -->
+                <div class="card feature-card">
+                    <div class="feature-header">
+                        <h2>Feature importance</h2>
+                        <p>Gain-based, top contributors</p>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-row">
+                            <div class="chart-label">V17</div>
+                            <div class="chart-bar-container">
+                                <div class="chart-bar-fill" style="width: 51%;"></div>
+                            </div>
+                            <div class="chart-value">51</div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-label">V4</div>
+                            <div class="chart-bar-container">
+                                <div class="chart-bar-fill" style="width: 14%;"></div>
+                            </div>
+                            <div class="chart-value">14</div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-label">V8</div>
+                            <div class="chart-bar-container">
+                                <div class="chart-bar-fill" style="width: 10%;"></div>
+                            </div>
+                            <div class="chart-value">10</div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-label">V14</div>
+                            <div class="chart-bar-container">
+                                <div class="chart-bar-fill" style="width: 5%;"></div>
+                            </div>
+                            <div class="chart-value">5</div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-label">V18</div>
+                            <div class="chart-bar-container">
+                                <div class="chart-bar-fill" style="width: 4%;"></div>
+                            </div>
+                            <div class="chart-value">4</div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-label">V10</div>
+                            <div class="chart-bar-container">
+                                <div class="chart-bar-fill" style="width: 3%;"></div>
+                            </div>
+                            <div class="chart-value">3</div>
+                        </div>
+                        <div class="chart-row">
+                            <div class="chart-label">V26</div>
+                            <div class="chart-bar-container">
+                                <div class="chart-bar-fill" style="width: 3%;"></div>
+                            </div>
+                            <div class="chart-value">3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODEL PERFORMANCE -->
+                <div class="card performance-card">
+                    <div class="performance-header">
+                        <h2>Model performance</h2>
+                        <p>Holdout set · retrained 3d ago</p>
+                    </div>
+
+                    <div class="perf-grid">
+                        <div class="perf-box">
+                            <div class="perf-label">ROC AUC</div>
+                            <div class="perf-value">0.854</div>
+                        </div>
+                        <div class="perf-box">
+                            <div class="perf-label">ACCURACY</div>
+                            <div class="perf-value">0.992</div>
+                        </div>
+                        <div class="perf-box">
+                            <div class="perf-label">F1 SCORE</div>
+                            <div class="perf-value">0.743</div>
+                        </div>
+                        <div class="perf-box">
+                            <div class="perf-label">TREES</div>
+                            <div class="perf-value">100</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <div class="slider-header">
+                            <span>Decision threshold</span>
+                            <span>0.62</span>
+                        </div>
+                        <div class="slider-track">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
