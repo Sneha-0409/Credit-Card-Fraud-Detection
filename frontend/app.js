@@ -50,7 +50,7 @@ const priorityData = [
 function renderLedger() {
     const tbody = document.getElementById('ledger-body');
     let html = '';
-    
+
     ledgerData.forEach(tx => {
         html += `
             <tr>
@@ -66,14 +66,14 @@ function renderLedger() {
             </tr>
         `;
     });
-    
+
     tbody.innerHTML = html;
 }
 
 function renderPriorityCases() {
     const list = document.getElementById('priority-list');
     let html = '';
-    
+
     priorityData.forEach(p => {
         let reasonsHtml = '';
         p.reasons.forEach(r => {
@@ -103,11 +103,10 @@ function renderPriorityCases() {
             </div>
         `;
     });
-    
+
     list.innerHTML = html;
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderLedger();
     renderPriorityCases();

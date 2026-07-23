@@ -6,13 +6,13 @@
     --text-secondary: #5c5953;
     --border-main: #2b2824;
     --border-light: #d1c8b3;
-    
+
     --color-green: #3f6344;
     --color-green-light: #e6f0e8;
     --color-red: #a43c31;
     --color-red-light: #f5e4e2;
     --color-yellow: #b59247;
-    
+
     --font-mono: 'IBM Plex Mono', monospace;
     --font-typewriter: 'Courier Prime', 'Courier New', monospace;
 }
@@ -42,7 +42,7 @@ body {
 .tabs {
     display: flex;
     gap: 0;
-    margin-bottom: -2px; /* Overlap border */
+    margin-bottom: -2px;
     position: relative;
     z-index: 1;
 }
@@ -87,7 +87,6 @@ body {
     box-shadow: inset 0 0 40px rgba(230, 220, 200, 0.3);
 }
 
-/* HEADER CARD */
 .header-card h1 {
     font-family: var(--font-typewriter);
     font-size: 24px;
@@ -146,6 +145,7 @@ body {
     box-shadow: none;
     position: relative;
 }
+
 .stats-grid .card::before {
     content: '';
     position: absolute;
@@ -155,6 +155,7 @@ body {
     height: 1px;
     background: var(--border-light);
 }
+
 .stats-grid .card::after {
     content: '';
     position: absolute;
@@ -229,12 +230,15 @@ body {
     /* Custom scrollbar */
     padding-right: 8px;
 }
+
 .table-container::-webkit-scrollbar {
     width: 6px;
 }
+
 .table-container::-webkit-scrollbar-track {
     background: transparent;
 }
+
 .table-container::-webkit-scrollbar-thumb {
     background-color: var(--bg-tab-inactive);
     border-radius: 4px;
@@ -319,7 +323,6 @@ tr:last-child td {
     border-color: var(--color-yellow);
 }
 
-/* PRIORITY SECTION */
 .priority-header {
     border-bottom: 1px solid var(--border-main);
     padding-bottom: 12px;
@@ -357,7 +360,7 @@ tr:last-child td {
     padding: 4px 40px;
     transform: rotate(45deg);
     letter-spacing: 1px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .priority-amount {
@@ -429,38 +432,37 @@ tr:last-child td {
 }
 
 /* FEATURE IMPORTANCE */
-.feature-header, .performance-header {
+.feature-header,
+.performance-header {
     border-bottom: 1px solid var(--border-main);
     padding-bottom: 12px;
     margin-bottom: 16px;
 }
 
-.feature-header h2, .performance-header h2 {
+.feature-header h2,
+.performance-header h2 {
     font-family: var(--font-typewriter);
     font-size: 18px;
 }
 
-.feature-header p, .performance-header p {
+.feature-header p,
+.performance-header p {
     font-size: 13px;
     color: var(--text-secondary);
     margin-top: 4px;
 }
 
 .chart-container {
-    background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 39px,
-        rgba(200, 190, 170, 0.3) 39px,
-        rgba(200, 190, 170, 0.3) 40px
-    ),
-    repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 39px,
-        rgba(200, 190, 170, 0.3) 39px,
-        rgba(200, 190, 170, 0.3) 40px
-    );
+    background: repeating-linear-gradient(90deg,
+            transparent,
+            transparent 39px,
+            rgba(200, 190, 170, 0.3) 39px,
+            rgba(200, 190, 170, 0.3) 40px),
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 39px,
+            rgba(200, 190, 170, 0.3) 39px,
+            rgba(200, 190, 170, 0.3) 40px);
     border: 1px solid var(--border-light);
     padding: 16px;
 }
@@ -493,13 +495,11 @@ tr:last-child td {
 .chart-bar-fill {
     height: 100%;
     background-color: var(--border-main);
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.1) 0px,
-        rgba(255, 255, 255, 0.1) 2px,
-        transparent 2px,
-        transparent 4px
-    );
+    background-image: repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.1) 0px,
+            rgba(255, 255, 255, 0.1) 2px,
+            transparent 2px,
+            transparent 4px);
 }
 
 .chart-value {
